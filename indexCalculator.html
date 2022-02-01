@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with UI</title>
+    <link rel="stylesheet" href="theCalculator.css">
+    <script src="theCalculator.js"></script>
+</head>
+<body>
+    <div id="cal-container">
+        <h1>CALCULATOR</h1>
+        <div class="calculator-grid">
+            <div class="calculator-output" id="calculation" >
+                <div class="display"></div>
+            </div>
+            <button id="clearValue" onclick="clearAllInput()" class="span-two">AC</button>
+            <button id="deleteValue" onclick="deleteInputValue()">&#8592;</button>
+            <button id="division" onclick="calculatorClick('/')">&#247;</button>
+            <button id="one" onclick="calculatorClick(1)">1</button>
+            <button id="two" onclick="calculatorClick(2)">2</button>
+            <button id="three" onclick="calculatorClick(3)">3</button>
+            <button id="multiplication" onclick="calculatorClick('*')">&times;</button>
+            <button id="four" onclick="calculatorClick(4)">4</button>
+            <button id="five" onclick="calculatorClick(5)">5</button>
+            <button id="six" onclick="calculatorClick(6)">6</button>
+            <button id="substraction" onclick="calculatorClick('-')">-</button>
+            <button id="seven" onclick="calculatorClick(7)">7</button>
+            <button id="eight" onclick="calculatorClick(8)">8</button>
+            <button id="nine" onclick="calculatorClick(9)">9</button>
+            <button id="addition" onclick="calculatorClick('+')">+</button>
+            <button id="decimal" onclick="calculatorClick('.')">.</button>
+            <button id="zero" onclick="calculatorClick(0)">0</button>
+            <button id="equalTo" onclick="calculateValue()" class="span-two">=</button>
+        </div>
+    </div>
+</body>
+</html>
