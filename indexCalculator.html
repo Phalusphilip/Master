@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator with UI</title>
     <link rel="stylesheet" href="theCalculator.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="theCalculator.js"></script>
 </head>
 <body>
     <!-- Simple calculator -->
-    <div id="cal-container" style="display:none">
+    <div class="simpleCalculator" id="cal-container expand-lg" style="display:none">
         <h1>CALCULATOR</h1>
         <div class="calculator-grid">
             <!-- display output -->
@@ -40,90 +41,93 @@
     </div>
 
     <!-- Scientific calculator -->
-    <div class="sci-calculatorContainer" id="sciCalculator" style="display:block">
-        <h1>Scientific Calculator</h1>
-        <div class="sci-calculatorGrid">
-            <!-- display output -->
-            <div class="sci-calculatorOutput" id="sciCalculation"> 
-                <p id="radText" style="display: none;">Rad</p>
+    <div class="theCalculator theCalculator-expand-xs">
+        <div class="sci-calculatorContainer expand-md" id="sciCalculator" style="display:block">
+            <h1>Scientific Calculator</h1>
+            <div class="sci-calculatorGrid">
+                
+                <!-- display output -->
+                <div class="sci-calculatorOutput" id="sciCalculation"> <div id="text"> <p id="radText" style="display: none;">Rad</p></div></div>
+                
+                <!-- buttons -->
+                <button id="openBracket" onclick="calculatorClick('(')">(</button>
+                <button id="closeBracket" onclick="calculatorClick(')')">)</button>
+                <button id="memoryClearOperator" onclick="memoryClearOperator()">mc</button>
+                <button id="memoryPlusOperator" onclick="memoryPlusOperator()">m+</button>
+                <button id="memoryMinusOperator" onclick="memoryMinusOperator()">m-</button>
+                <button id="memoryRecallOperator" onclick="memoryRecallOperator('mr')">mr</button>
+                <button id="clearAllInput" onclick="clearAllInput()">AC</button>
+                <button id="eitherPositiveOrNegative" onclick="eitherPositiveOrNegative() ">&#177;</button>
+                <button id="percentageSign" onclick="percentageEval()">&#37;</button>
+                <button id="division" class="signsOperator" onclick="calculatorClick('/')">&#247;</button>
+                <button id="secondFunction" onclick="secondOperatorFunction()">2<sup>nd</sup></button>
+                <button id="xRaisedToPowerOf2" onclick="xRaisedToPowerOf2()">x<sup>2</sup></button>
+                <button id="xRaisedToPowerOf3" onclick="xRaisedToPowerOf3()">x<sup>3</sup></button>
+                <button id="xRaisedToPowerOfY" onclick="xRaisedToPowerOfY()">x<sup>y</sup></button>
+                <!-- 2nd function clicks start -->
+                <button id="exponentialRaisedToX" class="shownButton" onclick="exponentialRaisedToX()">e<sup>x</sup></button>
+                <button id="yRaisedToPowerX" class="hiddenButton" style="display: none;" onclick=" " >y <sup>x</sup></button>
+                <button id="tenRaisedToPowerX" class="shownButton" onclick="tenRaisedToPowerX()">10<sup>x</sup></button>
+                <button id="twoRaisedToPowerX" class="hiddenButton" style="display: none;" onclick="twoRaisedToPowerX()" >2<sup>x</sup></button>
+                <!-- 2nd function click end -->
+                <button id="numberSeven" class="numberOperator" onclick="calculatorClick(7)">7</button>
+                <button id="numberEight" class="numberOperator" onclick="calculatorClick(8)">8</button>
+                <button id="numberNine" class="numberOperator" onclick="calculatorClick(9)">9</button>
+                <button id="multiplication" class="signsOperator" onclick="calculatorClick('*')">&#215;</button>
+
+                <button id="inverseEquation" onclick="inverseEquation()">&#8543; x</button>
+                <button id="squareRootX" onclick="squareRootX()">&#8730;x</button>
+                <button id="threeRootX" onclick=" ">&#8731;x</button>
+                <button id="yRootX" onclick=" ">y &#8730;x</button>
+
+                <!-- 2nd function clicks start-->
+                <button id="antiLog" class="shownButton" onclick="antiLog()">In</button>
+                <button id="logBase" class="hiddenButton" style="display: none;" onclick="logBase()" >log <sub>y</sub></button>
+                <button id="logBaseTen" class="shownButton" onclick="logBaseTenClickFunction()" >log <sub>10</sub></button>
+                <button id="logBaseTwo" class="hiddenButton" style="display: none;" onclick="logBaseTwoClickFunction()" >log <sub>2</sub></button>
+                <!-- 2nd function clicks end -->
+
+                <button id="numberFour" class="numberOperator" onclick="calculatorClick(4)">4</button>
+                <button id="numberFive" class="numberOperator" onclick="calculatorClick(5)">5</button>
+                <button id="numberSix" class="numberOperator" onclick="calculatorClick(6)">6</button>
+                <button id="substraction" class="signsOperator" onclick="calculatorClick('-')">-</button>
+                <button id="factorialOperator" onclick="factorialOperator()">X!</button>
+
+                <!-- 2nd function clicks start -->
+                <button id="sinOperator" class="shownButton" onclick="sinClickFunction()">sin</button>
+                <button id="sinInverse" class="hiddenButton" style="display: none;" onclick="sinInverseClickFunction()" >sin<sup>-1</sup></button>
+                <button id="cosOperator" class="shownButton" onclick="cosClickFunction()">cos</button>
+                <button id="cosInverse" class="hiddenButton" style="display: none;" onclick="cosInverseClickFunction()" >cos<sup>-1</sup></button>
+                <button id="tanOperator" class="shownButton" onclick="tanClickFunction()">tan</button>
+                <button id="tanInverse" class="hiddenButton" style="display: none;" onclick="tanInverseClickFunction()" >tan<sup>-1</sup></button>
+                <!-- 2nd function clicks end -->
+                <button id="exponentialOperator" onclick="exponentialClickFunction()">&#101;</button>
+                <button id="enterExponentOperator" onclick="enterExponentOperator('**')">&#8959;&#8959;</button>
+                <button id="numberOne" class="numberOperator" onclick="calculatorClick(1)">1</button>
+                <button id="numberTwo" class="numberOperator" onclick="calculatorClick(2)">2</button>
+                <button id="numberThree" class="numberOperator" onclick="calculatorClick(3)">3</button>
+                <button id="addition" class="signsOperator" onclick="calculatorClick('+')">+</button>
+                <!-- Rad and Deg click start -->
+                <button id="radOperator" onclick="radAndDegOperator()">Rad</button>
+                <button id="degOperator" style="display: none;" onclick="radAndDegOperator()">Deg</button>
+                <!-- Rad and Deg click end -->
+
+                <!-- 2nd function click start -->
+                <button id="sinH" class="shownButton" onclick="sinHClickFunction()">sinh</button>
+                <button id="sinhInverse" class="hiddenButton" style="display: none;" onclick="sinhInverseClickFunction()" >sinh<sup>-1</sup></button>
+                <button id="cosH" class="shownButton" onclick="cosHClickFunction()">cosh</button>
+                <button id="coshInverse" class="hiddenButton" style="display: none;" onclick="coshInverseClickFunction()" >cosh<sup>-1</sup></button>
+                <button id="tanH" class="shownButton" onclick="tanHClickFunction()">tanh</button>
+                <button id="tanhInverse" class="hiddenButton" style="display: none;" onclick="tanhInverseClickFunction()" >tanh<sup>-1</sup></button>
+                <!-- 2nd function clicks end -->
+                <button id="radiiOperator" onclick="radiiOperator()">&#8719;</button>
+                <button id="randOperator" onclick="randOperator()">Rand</button>
+                <button id="decimal" class="numberOperator" onclick="calculatorClick('.')">.</button>
+                <button id="numberZero" class="numberOperator" onclick="calculatorClick(0)">0</button>
+                <button id="equalTo" class="equalsTo" onclick="calculateValue() ">=</button>
             </div>
-            <!-- buttons -->
-            <button id="openBracket" onclick="calculatorClick('(')">(</button>
-            <button id="closeBracket" onclick="calculatorClick(')')">)</button>
-            <button id="mcSign" onclick="calculatorClick('mc')">mc</button>
-            <button id="mpositiveSign" onclick="calculatorClick('m+')">m+</button>
-            <button id="mnegativeSign" onclick="calculatorClick('m-')">m-</button>
-            <button id="mrSign" onclick="calculatorClick('mr')">mr</button>
-            <button id="clearAllInput" onclick="clearAllInput()">AC</button>
-            <button id="eitherPositiveOrNegative" onclick="eitherPositiveOrNegative() ">&#177;</button>
-            <button id="percentageSign" onclick="percentageEval()">&#37;</button>
-            <button id="division" class="signsOperator" onclick="calculatorClick('/')">&#247;</button>
-            <button id="secondFunction" onclick="secondOperatorFunction()">2<sup>nd</sup></button>
-            <button id="xRaisedToPowerOf2" onclick="xRaisedToPowerOf2()">x<sup>2</sup></button>
-            <button id="xRaisedToPowerOf3" onclick="xRaisedToPowerOf3()">x<sup>3</sup></button>
-            <button id="xRaisedToPowerOfY" onclick="xRaisedToPowerOfY()">x<sup>y</sup></button>
-            <!-- 2nd function clicks start -->
-            <button id="exponentialRaisedToX" class="shownButton" onclick="exponentialRaisedToX()">e<sup>x</sup></button>
-            <button id="yRaisedToPowerX" class="hiddenButton" style="display: none;" onclick=" " >y <sup>x</sup></button>
-            <button id="tenRaisedToPowerX" class="shownButton" onclick="tenRaisedToPowerX()">10<sup>x</sup></button>
-            <button id="twoRaisedToPowerX" class="hiddenButton" style="display: none;" onclick="twoRaisedToPowerX()" >2<sup>x</sup></button>
-            <!-- 2nd function click end -->
-            <button id="numberSeven" class="numberOperator" onclick="calculatorClick(7)">7</button>
-            <button id="numberEight" class="numberOperator" onclick="calculatorClick(8)">8</button>
-            <button id="numberNine" class="numberOperator" onclick="calculatorClick(9)">9</button>
-            <button id="multiplication" class="signsOperator" onclick="calculatorClick('*')">&#215;</button>
-
-            <button id="inverseEquation" onclick="inverseEquation()">&#8543; x</button>
-            <button id="squareRootX" onclick="squareRootX()">&#8730;x</button>
-            <button id="threeRootX" onclick=" ">&#8731;x</button>
-            <button id="yRootX" onclick=" ">y &#8730;x</button>
-
-            <!-- 2nd function clicks start-->
-            <button id="inExponential" class="shownButton" onclick=" ">In</button>
-            <button id="logBase" class="hiddenButton" style="display: none;" onclick=" " >log <sub>y</sub></button>
-            <button id="logBaseTen" class="shownButton" onclick="logBaseTenClickFunction()" >log <sub>10</sub></button>
-            <button id="logBaseTwo" class="hiddenButton" style="display: none;" onclick="logBaseTwoClickFunction()" >log <sub>2</sub></button>
-            <!-- 2nd function clicks end -->
-
-            <button id="numberFour" class="numberOperator" onclick="calculatorClick(4)">4</button>
-            <button id="numberFive" class="numberOperator" onclick="calculatorClick(5)">5</button>
-            <button id="numberSix" class="numberOperator" onclick="calculatorClick(6)">6</button>
-            <button id="substraction" class="signsOperator" onclick="calculatorClick('-')">-</button>
-            <button id="xOperator" onclick=" ">X!</button>
-
-            <!-- 2nd function clicks start -->
-            <button id="sinOperator" class="shownButton" onclick="sinClickFunction()">sin</button>
-            <button id="sinInverse" class="hiddenButton" style="display: none;" onclick="sinInverseClickFunction()" >sin<sup>-1</sup></button>
-            <button id="cosOperator" class="shownButton" onclick="cosClickFunction()">cos</button>
-            <button id="cosInverse" class="hiddenButton" style="display: none;" onclick="cosInverseClickFunction()" >cos<sup>-1</sup></button>
-            <button id="tanOperator" class="shownButton" onclick="tanClickFunction()">tan</button>
-            <button id="tanInverse" class="hiddenButton" style="display: none;" onclick="tanInverseClickFunction()" >tan<sup>-1</sup></button>
-            <!-- 2nd function clicks end -->
-            <button id="exponentialOperator" onclick="exponentialClickFunction()">&#101;</button>
-            <button id="enterExponentOperator" onclick="enterExponentOperator()">&#8959;&#8959;</button>
-            <button id="numberOne" class="numberOperator" onclick="calculatorClick(1)">1</button>
-            <button id="numberTwo" class="numberOperator" onclick="calculatorClick(2)">2</button>
-            <button id="numberThree" class="numberOperator" onclick="calculatorClick(3)">3</button>
-            <button id="addition" class="signsOperator" onclick="calculatorClick('+')">+</button>
-            <!-- Rad and Deg click start -->
-            <button id="radOperator" onclick="radAndDegOperator()">Rad</button>
-            <button id="degOperator" style="display: none;" onclick="radAndDegOperator()">Deg</button>
-            <!-- Rad and Deg click end -->
-
-            <!-- 2nd function click start -->
-            <button id="sinH" class="shownButton" onclick="sinHClickFunction()">sinh</button>
-            <button id="sinhInverse" class="hiddenButton" style="display: none;" onclick="sinhInverseClickFunction()" >sinh<sup>-1</sup></button>
-            <button id="cosH" class="shownButton" onclick="cosHClickFunction()">cosh</button>
-            <button id="coshInverse" class="hiddenButton" style="display: none;" onclick="coshInverseClickFunction()" >cosh<sup>-1</sup></button>
-            <button id="tanH" class="shownButton" onclick="tanHClickFunction()">tanh</button>
-            <button id="tanhInverse" class="hiddenButton" style="display: none;" onclick="tanhInverseClickFunction()" >tanh<sup>-1</sup></button>
-            <!-- 2nd function clicks end -->
-            <button id="radiiOperator" onclick="radiiOperator()">&#8719;</button>
-            <button id="randOperator" onclick="randOperator()">Rand</button>
-            <button id="decimal" class="numberOperator" onclick="calculatorClick('.')">.</button>
-            <button id="numberZero" class="numberOperator" onclick="calculatorClick(0)">0</button>
-            <button id="equalTo" class="equalsTo" onclick="calculateValue()">=</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

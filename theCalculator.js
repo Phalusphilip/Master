@@ -40,17 +40,6 @@ function calculatorClick(input) {
     // appendInput(input);
     console.log(input);
 }
-// demical click
-// let decimalClicked= false;
-// if(input=="."){
-//     if(!decimalClicked) {
-//         newInput+=input;
-//         decimalClicked= true;
-//     }else{
-//         newInput+=input;
-//     }
-// }
-
 // clear
 function clearAllInput() {
     var inputDisplayDiv = document.getElementById("sciCalculation");
@@ -66,6 +55,52 @@ function calculateValue() {
     var rounded = Math.round((roundNumberAnswer));
     inputDisplayDiv.innerText= rounded;
     console.log(rounded);
+}
+
+// Memory functions
+function memoryRecallOperator() {
+    let savedNumber=localStorage.getItem("numberStored");
+    let newSavedNumber= localStorage.getItem("newNumberStored");
+    if(savedNumber) {
+        let inputDisplayDiv= document.getElementById("sciCalculation");
+        inputDisplayDiv.innerText= localStorage.getItem("numberStored");
+    }
+    else if  (newSavedNumber) {
+        let inputDisplayDiv= document.getElementById("sciCalculation");
+        inputDisplayDiv.innerText= localStorage.getItem("newNumberStored");
+    }
+}
+
+function memoryClearOperator() {
+    localStorage.removeItem("numberStored");
+    localStorage.removeItem("newNumberStored");
+}
+
+function memoryPlusOperator() {
+    var inputDisplayDiv = document.getElementById("sciCalculation");
+    var input= inputDisplayDiv.innerText;
+    let numberStored= input;
+    localStorage.setItem("numberStored",numberStored);
+    let notifyStorage= localStorage.setItem("numberStored",numberStored);
+    let memoryRecallColor= document.getElementById('memoryRecallOperator');
+        if(notifyStorage) {
+            memoryRecallColor.style.backgroundColor="green";
+        }
+}
+
+function memoryMinusOperator() {
+    let savedNumber=localStorage.getItem("numberStored");
+        if(savedNumber) {
+            let inputDisplayDiv= document.getElementById("sciCalculation");
+            let newNumber= inputDisplayDiv.innerText;
+            let simpleEquation= localStorage.getItem("numberStored");
+            simpleEquation.innerText;
+            let solvedEquation= simpleEquation - newNumber;
+            inputDisplayDiv.innerText= solvedEquation;
+            let newNumberStored= solvedEquation;
+            localStorage.setItem("newNumberStored",newNumberStored);
+            localStorage.removeItem("numberStored");
+        }
 }
 
 // Math Operators
@@ -197,6 +232,37 @@ function tanhInverseClickFunction() {
     let y=oldInput;
     inputDisplayDiv.innerText=Math.atanh(y);
 }
+function factorialOperator(){
+    var inputDisplayDiv= document.getElementById("sciCalculation");
+    var oldInput= inputDisplayDiv.innerText;
+    let x=oldInput;
+    // inputDisplayDiv.innerText= ;
+        if (x<0) return;
+        if (x<2) return 1;
+        return output = x * factorial(x-1);
+}
+
+// function calcFact(num) {
+//     var i;
+//     var fact=1;
+//     for(i=1; i<=num; i++) {
+//         fact= fact * 1;
+//     }
+//     return 1;
+// }
+
+function logBase() {
+    var inputDisplayDiv= document.getElementById("sciCalculation");
+    var oldInput= inputDisplayDiv.innerText;
+    let x=oldInput;
+    inputDisplayDiv.innerText= Math.log(x);
+}
+function antiLog() {
+    var inputDisplayDiv= document.getElementById("sciCalculation");
+    var oldInput= inputDisplayDiv.innerText;
+    let x=oldInput;
+    inputDisplayDiv.innerText= Math.log(Math.pow(x,1));
+}
 // shift function or second function
                 function secondOperatorFunction() {
                     let exponentialClick= document.getElementById('exponentialRaisedToX');
@@ -206,7 +272,7 @@ function tanhInverseClickFunction() {
                     let twoRaisedToPowerXClick= document.getElementById('twoRaisedToPowerX');
 
                     let logBaseClick= document.getElementById('logBase');
-                    let inExponentialClick= document.getElementById('inExponential');
+                    let inExponentialClick= document.getElementById('antiLog');
 
                     let logBaseTwoClick= document.getElementById('logBaseTwo');
                     let logBaseTenClick=document.getElementById('logBaseTen');
@@ -319,7 +385,9 @@ function tanhInverseClickFunction() {
                             }
 
                 }
+
                 // Rad and Deg click
+                var selection= "rad";
                 function radAndDegOperator() {
                     let radClick= document.getElementById('radOperator');
                     let degClick=document.getElementById('degOperator');
@@ -339,10 +407,22 @@ function tanhInverseClickFunction() {
                 function sinClickFunction() {
                     var inputDisplayDiv = document.getElementById("sciCalculation");
                     var input= inputDisplayDiv.innerText;
-                    let sinValue= Math.sin(input);
-                    inputDisplayDiv.innerText= sinValue;
-                  }
+                    let cosValue=Math.sin(input *(Math.PI/180));
+                    inputDisplayDiv.innerText= cosValue;
 
+                    // let radDisplay= document.getElementById('radText');
+                    // if(radDisplay.style.display==="block") {
+                    //     var inputDisplayDiv = document.getElementById("sciCalculation");
+                    //     var input= inputDisplayDiv.innerText;
+                    //     let sinValue=  Math.sin(input *(Math.PI/180));
+                    //     inputDisplayDiv.innerText= sinValue;
+                    // }else{
+                    //     var inputDisplayDiv = document.getElementById("sciCalculation");
+                    //     var input= inputDisplayDiv.innerText;
+                    //     let sinValue=  Math.sin(input);
+                    //     inputDisplayDiv.innerText= sinValue;
+                    // }
+                  }
                 function sinInverseClickFunction() {
                     var inputDisplayDiv = document.getElementById("sciCalculation");
                     var input= inputDisplayDiv.innerText;
@@ -353,7 +433,7 @@ function tanhInverseClickFunction() {
                 function cosClickFunction() {
                     var inputDisplayDiv = document.getElementById("sciCalculation");
                     var input= inputDisplayDiv.innerText;
-                    let cosValue= Math.cos(input);
+                    let cosValue=Math.cos(input *(Math.PI/180));
                     inputDisplayDiv.innerText= cosValue;
                   }
 
@@ -367,7 +447,7 @@ function tanhInverseClickFunction() {
                 function tanClickFunction() {
                     var inputDisplayDiv = document.getElementById("sciCalculation");
                     var input= inputDisplayDiv.innerText;
-                    let tanValue= Math.tan(input);
+                    let tanValue=Math.tan(input *(Math.PI/180));
                     inputDisplayDiv.innerText= tanValue;
                   }
 
