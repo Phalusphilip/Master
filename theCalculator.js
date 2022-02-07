@@ -1,34 +1,3 @@
-// input function
-function calculatorClick(input) {
-    var inputDisplayDiv = document.getElementById("simpleCalculation");
-    document.getElementById("simpleCalculation").innerText;
-    var oldInput= inputDisplayDiv.innerText;
-    var newInput= oldInput +""+ input;
-    inputDisplayDiv.innerText=newInput;
-    console.log(input);
-}
-// clear
-function clearAllInput() {
-    var inputDisplayDiv = document.getElementById("simpleCalculation");
-    inputDisplayDiv.innerText="";
-}
-// delete
-function deleteInputValue() {
-    var inputDisplayDiv = document.getElementById("simpleCalculation");
-    document.getElementById("simpleCalculation").innerText;
-    inputDisplayDiv.innerText= inputDisplayDiv.innerText.slice(0, - 1);
-}   
-// calculate function
-function calculateValue() {
-    var inputDisplayDiv = document.getElementById("simpleCalculation");
-    var input= inputDisplayDiv.innerText;
-    var result= eval(input);
-    inputDisplayDiv.innerText= result;
-    var roundNumberAnswer= result;
-    var rounded = Math.round((roundNumberAnswer + Number.EPSILON) * 100) / 100;
-    console.log(rounded);
-}
-
 // scientific calculator
 // input function
 function calculatorClick(input) {
@@ -50,11 +19,11 @@ function calculateValue() {
     var inputDisplayDiv = document.getElementById("sciCalculation");
     var input= inputDisplayDiv.innerText;
     var result= eval(input);
-    // inputDisplayDiv.innerText= result;
-    var roundNumberAnswer= result;
-    var rounded = Math.round((roundNumberAnswer));
-    inputDisplayDiv.innerText= rounded;
-    console.log(rounded);
+    inputDisplayDiv.innerText= result;
+    // var roundNumberAnswer= result;
+    // var rounded = Math.round((roundNumberAnswer));
+    // inputDisplayDiv.innerText= rounded;
+    // console.log(rounded);
 }
 
 // Memory functions
@@ -391,14 +360,14 @@ function antiLog() {
                 function radAndDegOperator() {
                     let radClick= document.getElementById('radOperator');
                     let degClick=document.getElementById('degOperator');
-                    let radText= document.getElementById('radText');
+                    // let radText= document.getElementById('radText');
                         if(degClick.style.display==="none"){
                             degClick.style.display="block";
-                            radText.style.display="block";
+                            // radText.style.display="block";
                             radClick.style.display="none";
                         }else{
                             degClick.style.display="none";
-                            radText.style.display="none";
+                            // radText.style.display="none";
                             radClick.style.display="block";
                         }
                 }
@@ -470,28 +439,3 @@ function antiLog() {
                     let tanValue= Math.tan(input);
                     inputDisplayDiv.innerText= tanValue;
                   }
-
-// function secondOperatorFunction() {
-//     var hiddenButton = document.getElementsByClassName('hiddenButton');
-//     var shownButton=document.getElementsByClassName('shownButton')
-//     if (hiddenButton.style.display==="none") {
-//         hiddenButton.style.display = "block";
-//         shownButton.style.display="none";
-//     } else {
-//         hiddenButton.style.display = "none";
-//         shownButton.style.display="block";
-//     }
-//   }
-
-
-// function appendInput(input) {
-//     var inputDisplayDiv = document.getElementById("sciCalculation");
-//     document.getElementById("sciCalculation").innerText;
-//     if(inputDisplayDiv==''){
-//         inputDisplayDiv.innerText=input;
-//     }else if(input=='.' && inputDisplayDiv.innerText.indexOf('.')>-1){
-
-//     }else{
-//         inputDisplayDiv.innerText+=input;
-//     }
-// }
